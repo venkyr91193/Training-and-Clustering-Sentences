@@ -1,7 +1,7 @@
 import os
 
 from gensim.models import KeyedVectors, Word2Vec
-from gensim.test.utils import common_texts, get_tmpfile
+from gensim.test.utils import get_tmpfile
 
 
 class Train:
@@ -20,11 +20,11 @@ class Train:
     # Can be preloaded to a much better pretrained word2vec model
     # But for custom specific application of documents or work,
     # loading your own corpus is better.
-    model = Word2Vec(common_texts, size=100, window=5, min_count=1, workers=4)
-
+    model = Word2Vec(size=100, window=5, min_count=1, workers=4)
+    model.build_vocab(sentences=self.sentences)
     # start the training
     # can vary the epochs to be higher for more work specific tasks
-    model.train(self.sentences, total_examples=len(self.sentences), epochs=1)
+    model.train(self.sentences, total_examples=len(self.sentences), epochs=5)
 
     # save the model
     model.wv.save(os.path.join(self.model_path, "custom_word2vec.model"))
