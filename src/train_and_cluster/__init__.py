@@ -9,6 +9,9 @@ class SentenceClustering:
     self.sentences = sentences
     self.model_path = model_path
     self.language = languages.get(language.lower())
+    if not self.language:
+      print('Invalid language')
+      exit()
     self.num_of_clusters = num_of_clusters
     self.type_of_clustering = type_of_clustering
     self.ltc_obj = LoadTrainCluster(self.sentences, self.language, self.model_path)
