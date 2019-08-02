@@ -1,0 +1,23 @@
+# Python
+*.pyc
+*.pytest_cache
+*.whl
+.pytest_cache/
+*.egg-info
+*.egg-info/
+
+
+# MANIFEST 
+MANIFEST
+
+# Build
+build
+
+# Tests
+junit
+
+# VSCODE
+settings.json
+
+# Python
+dist/
