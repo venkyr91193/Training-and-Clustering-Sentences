@@ -16,9 +16,8 @@ Clone the repository and navigate to src folder.
 
 # Build and Install
 
-# Build
 python setup.py bdist_wheel
-# Install
+
 pip install .\dist\custom_train_and_clustering-0.0.1-py3-none-any.whl
 
 # Example to run
