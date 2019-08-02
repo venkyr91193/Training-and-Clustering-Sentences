@@ -1,0 +1,8 @@
+# pip install -r requirements.txt
+
+###### python libaries ######
+spacy
+sklearn
+nltk
+gensim
+numpy
