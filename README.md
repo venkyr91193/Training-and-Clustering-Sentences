@@ -8,7 +8,7 @@ German, Greek, English, Spanish, french, Italian, Dutch and Portuguese.
 
 # Clustering
 
-Currently supports only NLTK
+Currently supports only NLTK and Sklearn
 
 # To install and run
 
