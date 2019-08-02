@@ -39,3 +39,5 @@ class LoadTrainCluster:
     cluster_obj = Cluster(self.tokenized_sentences, self.model_path, num_of_clusters)
     if type_of_clustering == 'nltk':
       return cluster_obj.nltk_cluster()
+    elif type_of_clustering == 'sklearn':
+      return cluster_obj.nltk_cluster()
