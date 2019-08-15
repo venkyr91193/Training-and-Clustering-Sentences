@@ -23,6 +23,9 @@ pip install .\dist\custom_train_and_clustering-0.0.1-py3-none-any.whl
 # Example to run
 
   >>> from train_and_cluster import SentenceClustering
+  
   >>> a = SentenceClustering(sentences_in_a_python_list,model_path,'English',num_of_clusters,'nltk')
+  
   >>> print(a.clusters)
-  >>> You will have a list of integers with the clusters for the sentence in the same order as the input.
+  
+  >>> You will have a list of integers with the clusters for the sentencein the same order as the input.
