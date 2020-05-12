@@ -1,7 +1,7 @@
 import setuptools
 from distutils.core import setup
 
-setup(name='custom_train_and_clustering',
+setup(name='text_clustering',
       author='Venkataramana Radhakrishnan',
       author_email='venkyr91193@gmail.com',
       description='To train your custom word2vec for work specific tasks in many languages',   

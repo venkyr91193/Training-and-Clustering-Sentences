@@ -21,3 +21,6 @@ settings.json
 
 # Python
 dist/
+
+# ds store for mac
+.DS_store

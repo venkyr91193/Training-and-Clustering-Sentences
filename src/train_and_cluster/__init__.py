@@ -4,7 +4,7 @@ from train_and_cluster.languages import languages
 from train_and_cluster.load_train_cluster import LoadTrainCluster
 
 
-class SentenceClustering:
+class TextClustering:
   def __init__(self, sentences:list, model_path:str, language:str, num_of_clusters:int, type_of_clustering:str):
     self.sentences = sentences
     self.model_path = model_path
