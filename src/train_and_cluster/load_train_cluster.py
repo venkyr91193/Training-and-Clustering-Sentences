@@ -1,5 +1,3 @@
-import random
-
 import spacy
 
 from train_and_cluster.cluster import Cluster
@@ -21,9 +19,9 @@ class LoadTrainCluster:
     Function to get the tokens from the sentence
     and filter out the stop words.
     '''
-    # using the blank english model for tokenising and removing keywords.
+    # using the blank english model for tokenizing and removing stopwords.
     for data in self.sentences:
-      doc = self.obj(data)    
+      doc = self.obj(data)
       doc_array = [str(t) for t in doc if not t.is_stop]
       self.tokenized_sentences.append(doc_array)
 
@@ -32,12 +30,22 @@ class LoadTrainCluster:
     Start the training of the model using Train api using 80% of input.
     Cluster the remaining 20% to check the score and the clustering.
     '''
-    random.shuffle(self.tokenized_sentences)
-
     train_obj = Train(self.tokenized_sentences, self.model_path)
+    output = {sent: None for sent in self.sentences}
+    input_ts = list()
+    input_sents = list()
+    for index,ts in enumerate(self.tokenized_sentences):
+      if len(ts) > 0:
+        input_ts.append(ts)
+        input_sents.append(self.sentences[index])
     # defaulted the number of clusters to 10.
-    cluster_obj = Cluster(self.tokenized_sentences, self.model_path, num_of_clusters)
+    cluster_obj = Cluster(input_ts, self.model_path, num_of_clusters)
     if type_of_clustering == 'nltk':
-      return cluster_obj.nltk_cluster()
+      clusters = cluster_obj.nltk_cluster()
+      for index,sent in enumerate(input_sents):
+        output[sent] = clusters[index]
     elif type_of_clustering == 'sklearn':
-      return cluster_obj.nltk_cluster()
+      clusters = cluster_obj.nltk_cluster()
+      for index,sent in enumerate(input_sents):
+        output[sent] = clusters[index]
+    return output

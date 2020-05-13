@@ -24,6 +24,5 @@ Clone the repository and navigate to src folder.
 # Example to run
 
     >>> from train_and_cluster import TextClustering
-    >>> a = TextClustering([list of texts],model_folder,'en',num_of_clusters,'nltk')
-    >>> print(a.clusters)
-    >>> You will have a list of integers with the clusters for the texts in the same order as the input.
+    >>> obj = TextClustering(['Today is good.'],model_folder,'en',num_of_clusters=1,'nltk')
+    >>> print(obj.clusters) # outputs a dictionary with the sentence and its cluster number.
